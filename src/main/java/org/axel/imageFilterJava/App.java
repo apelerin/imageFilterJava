@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        ArrayList<String> list_path = getPaths();
+        ArrayList<String> list_path = getRelPath();
         grayScaleFilter myGrayScaleFilter = new grayScaleFilter();
+        //pass the names to the fi
         list_path.forEach(myGrayScaleFilter::applyFilter);
     }
 
-    public static ArrayList<String> getPaths() {
+    public static ArrayList<String> getRelPath() {
         ArrayList<String> list_path = new ArrayList<String>();
         File folder = new File("imgIn");
         File[] listOfFiles = folder.listFiles();

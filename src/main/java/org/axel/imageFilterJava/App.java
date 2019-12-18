@@ -18,18 +18,14 @@ public class App {
         String input = line.getOptionValue("input");
         String output = line.getOptionValue("output");
 
-        System.out.println(input + output);
-
         if (help) {
             final HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp("FilterCLI", options, true);
             System.exit(0);
         }
 
-
         ArrayList<String> list_path = getRelPath();
         grayScaleFilter myGrayScaleFilter = new grayScaleFilter();
-        //pass the names to the fi
         list_path.forEach(myGrayScaleFilter::applyFilter);
     }
 

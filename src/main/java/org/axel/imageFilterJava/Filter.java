@@ -3,5 +3,6 @@ package org.axel.imageFilterJava;
 import org.bytedeco.opencv.opencv_core.Mat;
 
 public interface Filter {
-    Mat filter(Mat image);
+    void applyFilter(String pathName) throws FilterException;
+    Mat filter(Mat image) throws FilterException;
 }

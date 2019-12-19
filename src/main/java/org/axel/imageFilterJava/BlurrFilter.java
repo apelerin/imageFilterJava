@@ -10,6 +10,11 @@ import java.io.IOException;
 import static org.bytedeco.opencv.global.opencv_imgproc.GaussianBlur;
 
 public class BlurrFilter implements Filter {
+    /**
+     * Apply the filter to a given image and save it
+     * @param pathName the relative path of the image
+     * @param output the relative path of the directory we want the image to be saved to
+     */
     public void applyFilter(String pathName, String output) {
         File f = new File(pathName);
         String name = f.getName();
@@ -26,6 +31,11 @@ public class BlurrFilter implements Filter {
         }
     }
 
+    /**
+     *
+     * @param image matrice of the image we want to filter
+     * @return a matrice of the image filtered
+     */
     public Mat filter(Mat image) {
         int size = 3;
         Mat result = image.clone();

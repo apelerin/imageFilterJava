@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Logger {
     /**
-     *
+     * Log a message at a the actual hour and dates
      * @param message we want to log
      * @throws IOException
      */

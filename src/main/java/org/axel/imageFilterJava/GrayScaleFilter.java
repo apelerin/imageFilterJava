@@ -23,7 +23,7 @@ public class GrayScaleFilter implements Filter {
         try {
             image = filter(image);
             File outputDir = new File(output);
-            File outputFile = new File(outputDir, "[GS]" + name + ".jpg");
+            File outputFile = new File(outputDir, "[GS]" + name);
             opencv_imgcodecs.imwrite(outputFile.getAbsolutePath(), image);
             Logger scribe = new Logger();
             scribe.log(" Filtering of " + name + " with " + this.getClass().getSimpleName() + '\n');

@@ -6,6 +6,7 @@ import org.opencv.core.CvType;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.bytedeco.opencv.global.opencv_imgproc.cvtColor;
 
@@ -19,7 +20,9 @@ public class grayScaleFilter implements Filter {
             File outputDir = new File("imgOut");
             File outputFile = new File(outputDir, "[GS]" + name + ".jpg");
             opencv_imgcodecs.imwrite(outputFile.getAbsolutePath(), image);
-        } catch (RuntimeException e) {
+            Logger scribe = new Logger();
+            scribe.log(" Filtering of " + name + " with " + this.getClass().getSimpleName() + '\n');
+        } catch (RuntimeException | IOException e) {
         System.out.println("Problem happened during filtering");
     }
     }

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static org.bytedeco.opencv.global.opencv_imgproc.*;
 
-public class DilateFilter  implements Filter {
+public class DilateFilter implements Filter {
     /**
      * Apply the filter to a given image and save it
      * @param pathName the relative path of the image

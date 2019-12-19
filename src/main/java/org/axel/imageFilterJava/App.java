@@ -5,6 +5,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class App {
+    /**
+     *
+     * @param args
+     * @throws ParseException
+     */
     public static void main(String[] args) throws ParseException {
         final Options firstOptions = configFirstParameters();
         final Options options = configParameters(firstOptions);
@@ -20,7 +25,7 @@ public class App {
             System.exit(0);
         }
         if (list) {
-            System.out.println("-Grayscale filter" + '\n' + "-Blur filter" + '\n' + "-Dilate filter");
+            System.out.println("-Grayscale filter" + '\n' + "-Blur filter" + '\n' + "-Dilate filter" + '\n' + "-ZebestTeam filter");
         }
 
 
@@ -33,10 +38,13 @@ public class App {
         myGrayScaleFilter = new GrayScaleFilter();
         BlurrFilter myBlurFilter = new BlurrFilter();
         DilateFilter myDilateFilter = new DilateFilter();
+        ZeBestTeam myZbeub = new ZeBestTeam();
+
         for (int i = 0; i < list_path.size(); i++) {
             myGrayScaleFilter.applyFilter(list_path.get(i), output);
             myBlurFilter.applyFilter(list_path.get(i), output);
             myDilateFilter.applyFilter(list_path.get(i), output);
+            myZbeub.applyFilter(list_path.get(i), output);
         }
     }
 

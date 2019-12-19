@@ -3,7 +3,6 @@ package org.axel.imageFilterJava;
 import org.bytedeco.opencv.global.opencv_imgcodecs;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_core.Size;
-import org.opencv.core.CvType;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;

@@ -31,6 +31,8 @@ public class App {
         }
     }
 
+
+
     /**
      * Get the relatives paths of all files into an input directory
      * @param input, the name of the input directory.

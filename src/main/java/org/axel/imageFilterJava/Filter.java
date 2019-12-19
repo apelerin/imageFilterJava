@@ -6,3 +6,5 @@ public interface Filter {
     void applyFilter(String pathName, String output) throws FilterException;
     Mat filter(Mat image) throws FilterException;
 }
+
+

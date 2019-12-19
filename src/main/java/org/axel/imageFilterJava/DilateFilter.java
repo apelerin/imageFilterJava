@@ -3,13 +3,15 @@ package org.axel.imageFilterJava;
 import org.bytedeco.opencv.global.opencv_imgcodecs;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_core.Size;
+import org.opencv.core.CvType;
+import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
 import java.io.IOException;
 
-import static org.bytedeco.opencv.global.opencv_imgproc.GaussianBlur;
+import static org.bytedeco.opencv.global.opencv_imgproc.*;
 
-public class BlurrFilter implements Filter {
+public class DilateFilter  implements Filter {
     /**
      * Apply the filter to a given image and save it
      * @param pathName the relative path of the image
@@ -22,7 +24,7 @@ public class BlurrFilter implements Filter {
         try {
             image = filter(image);
             File outputDir = new File(output);
-            File outputFile = new File(outputDir, "[Bl]" + name + ".jpg");
+            File outputFile = new File(outputDir, "[DL]" + name);
             opencv_imgcodecs.imwrite(outputFile.getAbsolutePath(), image);
             Logger scribe = new Logger();
             scribe.log(" Filtering of " + name + " with " + this.getClass().getSimpleName() + '\n');
@@ -36,10 +38,11 @@ public class BlurrFilter implements Filter {
      * @param image matrice of the image we want to filter
      * @return a matrice of the image filtered
      */
-    public Mat filter(Mat image) {
-        int size = 15;
+    public Mat filter (Mat image) {
+        int size = 8;
         Mat result = image.clone();
-        GaussianBlur(image, result, new Size(size, size), 0);
+        Mat element = getStructuringElement(Imgproc.MORPH_RECT, new Size(2 * size + 1, 2 * size + 1));
+        dilate(image, result, element);
         return result;
     }
 }

@@ -26,8 +26,10 @@ public class App {
 
         ArrayList<String> list_path = getRelPath(input);
         GrayScaleFilter myGrayScaleFilter = new GrayScaleFilter();
+        BlurrFilter myBlurFilter = new BlurrFilter();
         for (int i = 0; i < list_path.size(); i++) {
             myGrayScaleFilter.applyFilter(list_path.get(i), output);
+            myBlurFilter.applyFilter(list_path.get(i), output);
         }
     }
 

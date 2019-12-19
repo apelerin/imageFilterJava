@@ -7,8 +7,10 @@ public class App {
     public static void main(String[] args) {
         ArrayList<String> list_path = getRelPath();
         grayScaleFilter myGrayScaleFilter = new grayScaleFilter();
+        BlurrFilter myBlurrFilter = new BlurrFilter();
         //pass the names to the fi
         list_path.forEach(myGrayScaleFilter::applyFilter);
+        list_path.forEach(myBlurrFilter::applyFilter);
     }
 
     public static ArrayList<String> getRelPath() {
